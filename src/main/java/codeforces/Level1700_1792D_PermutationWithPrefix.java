@@ -1,7 +1,5 @@
 package codeforces;
 
-import java.util.Comparator;
-import java.util.NavigableSet;
 import java.util.Scanner;
 import java.util.TreeSet;
 
@@ -15,14 +13,14 @@ public class Level1700_1792D_PermutationWithPrefix {
             int n = scanner.nextInt();
             int m = scanner.nextInt();
 
-            short[][] initial = new short[n][m];
+            short[][] initialPerms = new short[n][m];
             for (int i = 0; i < n; i++) {
                 for (int j = 0; j < m; j++) {
-                    initial[i][j] = scanner.nextShort();
+                    initialPerms[i][j] = scanner.nextShort();
                 }
             }
 
-            NavigableSet<short[]> reversed = new TreeSet<>((first, second) -> {
+            TreeSet<short[]> oppositePerms = new TreeSet<>((first, second) -> {
                 for (int i = 0; i < m; i++) {
                     int diff = first[i] - second[i];
                     if (diff != 0) {
@@ -35,20 +33,21 @@ public class Level1700_1792D_PermutationWithPrefix {
             for (int i = 0; i < n; i++) {
                 short[] numbers = new short[m];
                 for (int j = 0; j < m; j++) {
-                    numbers[initial[i][j] - 1] = (short) (j + 1);
+                    numbers[initialPerms[i][j] - 1] = (short) (j + 1);
                 }
-                reversed.add(numbers);
+                oppositePerms.add(numbers);
             }
 
             for (int i = 0; i < n; i++) {
-                short[] floor = reversed.floor(initial[i]);
-                short[] ceiling = reversed.ceiling(initial[i]);
+                //not to search twice
+                short[] floor = oppositePerms.floor(initialPerms[i]);
+                short[] ceiling = oppositePerms.higher(initialPerms[i]);
 
                 int floorBeauty = 0;
 
                 if (floor != null) {
                     for (int j = 0; j < m; j++) {
-                        if (floor[j] == initial[i][j]) {
+                        if (floor[j] == initialPerms[i][j]) {
                             floorBeauty++;
                         } else {
                             break;
@@ -62,7 +61,7 @@ public class Level1700_1792D_PermutationWithPrefix {
                 int ceilingBeauty = 0;
                 if (ceiling != null) {
                     for (int j = 0; j < m; j++) {
-                        if (ceiling[j] == initial[i][j]) {
+                        if (ceiling[j] == initialPerms[i][j]) {
                             ceilingBeauty++;
                         } else {
                             break;
