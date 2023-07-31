@@ -24,7 +24,7 @@ public class Level1200_1843D_AppleTree {
                 edges[v2].add(v1);
             }
             long[] counts = new long[n + 1];
-            calc(1, edges, counts, new boolean[n + 1]);
+            calc(1, -1, edges, counts);
             int q = scanner.nextInt();
             for (int i = 0; i < q; i++) {
                 System.out.println(
@@ -37,14 +37,13 @@ public class Level1200_1843D_AppleTree {
 
     private static long calc(
             int vertex,
+            int parent,
             List<Integer>[] edges,
-            long[] counts,
-            boolean[] visited) {
-        visited[vertex] = true;
-        long count = 0L;
+            long[] counts) {
+        long count = 0;
         for (Integer neighbor : edges[vertex]) {
-            if (!visited[neighbor]) {
-                count += calc(neighbor, edges, counts, visited);
+            if (neighbor != parent) {
+                count += calc(neighbor, vertex, edges, counts);
             }
         }
         count = Math.max(1, count);
