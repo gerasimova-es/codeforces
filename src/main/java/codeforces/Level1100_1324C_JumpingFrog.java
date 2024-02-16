@@ -9,7 +9,7 @@ public class Level1100_1324C_JumpingFrog {
 
         String[] routes = new String[bundleCount];
 
-        for(int i = 0; i < bundleCount; i++){
+        for (int i = 0; i < bundleCount; i++) {
             routes[i] = scanner.next();
         }
 
@@ -18,21 +18,21 @@ public class Level1100_1324C_JumpingFrog {
         }
     }
 
-    private static int calc(String s){
+    private static int calc(String s) {
         int step = 1;
         int maxStep = 1;
-        for(int i = 0; i < s.length(); i++){
-            if(s.charAt(i) == 'L'){
+        for (int i = 0; i < s.length(); i++) {
+            if (s.charAt(i) == 'L') {
                 step++;
             }
-            if(s.charAt(i) == 'R'){
-                if(maxStep < step){
+            if (s.charAt(i) == 'R') {
+                if (maxStep < step) {
                     maxStep = step;
                 }
                 step = 1;
             }
         }
-        if(maxStep < step){
+        if (maxStep < step) {
             maxStep = step;
         }
         return maxStep;

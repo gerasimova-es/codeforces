@@ -1,6 +1,6 @@
-package others;
+package leetcode;
 
-public class HouseRobber {
+public class Medium_198_HouseRobber {
 
     public static void main(String[] args) {
         int[] nums = new int[]{1, 2, 3, 9, 5, 2, 7, 8, 2, 5, 5, 1, 3, 3, 3, 2, 1, 100, 4, 77, 11, 4};
