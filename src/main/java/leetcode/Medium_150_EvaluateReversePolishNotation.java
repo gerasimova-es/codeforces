@@ -14,18 +14,18 @@ import java.util.Set;
  * 6) The answear and all the intermediate calculation can be represented in a 32-bit integer
  *
  * - Solution
- * Since the given array is a valid arithmetic expression in a Reverse Polisch Notation
+ * Since the given array is a valid arithmetic expression in a Reverse Polish Notation
  * there can be only two types of the expression. It is either an array of length 1 containing single numeric value or
- * it representes any expression containing at leas one operator. So firstly we need to check whether the size of the array equals 1.
- * If it's so we can immediately return the only element as an answer. Otherwise we assume that the last element is an operator.
+ * it represents any expression containing at leas one operator. So firstly we need to check whether the size of the array equals 1.
+ * If it's so we can immediately return the only element as an answer. Otherwise, we assume that the last element is an operator.
  * Then we need to access the second element from the end. Here are also two options.
- * If we ecnounter a number we just convert it into an integer.
- * Otherwise we need to evaluate inner expression recursivle before applying our operator.
- * To keep track of the checked elements we store the position of the each considered element in a global variable.
+ * If we encounter a number we just convert it into an integer.
+ * Otherwise, we need to evaluate inner expression recursivle before applying our operator.
+ * To keep track of the checked elements we store the position of each considered element in a global variable.
  * Then we apply the same logic to the second element accessing it using the position stored in the global variable.
  * When we reach the most nested expression we need to perform an arithmetic operation with two integers and return the value as a result.
- * Going back resursivle we calculate the intermediate results. After processing all of the tockens we get the final result.
- * Through all our calculation we dont truncate the result of devision manualy. We rely on the underlying integer divisiion java implemenation.
+ * Going back recursive we calculate the intermediate results. After processing all the tokens we get the final result.
+ * Through all our calculation we don't truncate the result of division manually. We rely on the underlying integer division java implementation.
  */
 public class Medium_150_EvaluateReversePolishNotation {
 
@@ -45,11 +45,11 @@ public class Medium_150_EvaluateReversePolishNotation {
 
         position--;
         String operand1 = tokens[position];
-        int value1 = OPERATORS.contains(operand1) ? recursion(tokens) : Integer.parseInt(tokens[position]);
+        int value1 = OPERATORS.contains(operand1) ? recursion(tokens) : Integer.parseInt(operand1);
 
         position--;
         String operand2 = tokens[position];
-        int value2 = OPERATORS.contains(operand2) ? recursion(tokens) : Integer.parseInt(tokens[position]);
+        int value2 = OPERATORS.contains(operand2) ? recursion(tokens) : Integer.parseInt(operand2);
 
         return switch (operator) {
             case "+" -> value1 + value2;

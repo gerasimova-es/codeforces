@@ -27,10 +27,7 @@ public class Level1200_1843D_AppleTree {
             calc(1, -1, edges, counts);
             int q = scanner.nextInt();
             for (int i = 0; i < q; i++) {
-                System.out.println(
-                        counts[scanner.nextInt()]
-                                * counts[scanner.nextInt()]
-                );
+                System.out.println(counts[scanner.nextInt()] * counts[scanner.nextInt()]);
             }
         }
     }
