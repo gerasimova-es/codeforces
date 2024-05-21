@@ -1,5 +1,7 @@
 package leetcode;
 
+import utils.TreeNode;
+
 public class Easy_543_DiameterOfBinaryTree {
     private static int maxLength = 0;
 
@@ -21,24 +23,5 @@ public class Easy_543_DiameterOfBinaryTree {
         int right = execute(root.right);
         maxLength = Math.max(maxLength, left + right);
         return Math.max(left, right) + 1;
-    }
-
-    public static class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
-
-        TreeNode() {
-        }
-
-        TreeNode(int val) {
-            this.val = val;
-        }
-
-        TreeNode(int val, TreeNode left, TreeNode right) {
-            this.val = val;
-            this.left = left;
-            this.right = right;
-        }
     }
 }

@@ -1,5 +1,7 @@
 package leetcode;
 
+import utils.TreeNode;
+
 public class Medium_235_LowestCommonAncestorBinarySearchTree {
 
     public static void main(String[] args) {
@@ -25,27 +27,6 @@ public class Medium_235_LowestCommonAncestorBinarySearchTree {
             return lowestCommonAncestor(root.left, p, q);
         } else {
             return root;
-        }
-    }
-
-    private static class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
-
-        TreeNode(int x) {
-            val = x;
-        }
-
-        public TreeNode(int val, TreeNode left, TreeNode right) {
-            this.val = val;
-            this.left = left;
-            this.right = right;
-        }
-
-        @Override
-        public String toString() {
-            return String.valueOf(val);
         }
     }
 }

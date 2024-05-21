@@ -1,5 +1,7 @@
 package leetcode;
 
+import utils.TreeNode;
+
 public class Easy_101_SymmetricTree {
 
     public boolean isSymmetric(TreeNode root) {
@@ -16,24 +18,6 @@ public class Easy_101_SymmetricTree {
         }
         return recursion(left.left, right.right)
                 && recursion(left.right, right.left);
-    }
-
-    public class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
-
-        TreeNode() {}
-
-        TreeNode(int val) {
-            this.val = val;
-        }
-
-        TreeNode(int val, TreeNode left, TreeNode right) {
-            this.val = val;
-            this.left = left;
-            this.right = right;
-        }
     }
 }
 

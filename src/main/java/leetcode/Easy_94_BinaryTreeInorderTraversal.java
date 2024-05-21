@@ -1,5 +1,7 @@
 package leetcode;
 
+import utils.TreeNode;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,24 +20,5 @@ public class Easy_94_BinaryTreeInorderTraversal {
         execute(node.left);
         result.add(node.val);
         execute(node.right);
-    }
-
-    public class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
-
-        TreeNode() {
-        }
-
-        TreeNode(int val) {
-            this.val = val;
-        }
-
-        TreeNode(int val, TreeNode left, TreeNode right) {
-            this.val = val;
-            this.left = left;
-            this.right = right;
-        }
     }
 }

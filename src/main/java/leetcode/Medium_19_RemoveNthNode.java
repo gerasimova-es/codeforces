@@ -1,5 +1,7 @@
 package leetcode;
 
+import utils.ListNode;
+
 /**
  * The overall idea is to use the second pointer to keep track of the element that is n elements behind.
  * As soon as it is linked list to solve this problem we need to reach the end of the list with first pointer
@@ -52,28 +54,6 @@ public class Medium_19_RemoveNthNode {
         }
         preRemovable.next = preRemovable.next.next;
         return head;
-    }
-
-    public static class ListNode {
-        int val;
-        ListNode next;
-
-        ListNode() {
-        }
-
-        ListNode(int val) {
-            this.val = val;
-        }
-
-        ListNode(int val, ListNode next) {
-            this.val = val;
-            this.next = next;
-        }
-
-        @Override
-        public String toString() {
-            return val + (next == null ? "" :  " -> " + next);
-        }
     }
 }
 

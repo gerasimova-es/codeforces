@@ -1,5 +1,7 @@
 package leetcode;
 
+import utils.ListNode;
+
 public class Easy_206_ReverseLinkedList {
 
     public static void main(String[] args) {
@@ -20,27 +22,5 @@ public class Easy_206_ReverseLinkedList {
             current = next;
         }
         return previous;
-    }
-
-    public static class ListNode {
-        int val;
-        ListNode next;
-
-        ListNode() {
-        }
-
-        ListNode(int val) {
-            this.val = val;
-        }
-
-        ListNode(int val, ListNode next) {
-            this.val = val;
-            this.next = next;
-        }
-
-        @Override
-        public String toString() {
-            return String.valueOf(val) + (next == null ? "" : next);
-        }
     }
 }
